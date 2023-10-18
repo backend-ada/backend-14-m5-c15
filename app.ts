@@ -1,29 +1,5 @@
 import express, { json } from 'express';
 
-// BASE DE DATOS DE EJEMPLO ----- //
-
-const db = {
-	stock: [
-		{
-			id: 1,
-			name: 'glass',
-			price: 18,
-		},
-		{
-			id: 2,
-			name: 'wood',
-			price: 12,
-		},
-		{
-			id: 3,
-			name: 'iron',
-			price: 27,
-		},
-	],
-};
-
-// ------------------------------ //
-
 const app = express();
 const PORT = process.env.PORT ?? 45000;
 
@@ -32,7 +8,7 @@ app.use(json());
 // Este endpoint respeta los lineamientos REST
 // http://127.0.0.1:60300/products
 app.get('/products', (req, res) => {
-	res.status(200).json(db);
+	res.status(200).json('db');
 });
 
 // Tengan en cuenta que aprendimos desde el principio a armar las APIs según REST
@@ -41,7 +17,13 @@ app.get('/products', (req, res) => {
 app.get('/get-products', (req, res) => {
 	// Además, es una buena práctica siempre retornar las respuestas en formato JSON
 	// Otros lenguajes como Python incluyen los métodos json.loads() y json.dumps() para manipular este formato...
-	res.status(200).send(db);
+	res.status(200).send('db');
+});
+
+// Este es otro ejemplo de un endpoint para obtener un producto
+// Que NO respeta los lineamientos REST
+app.get('/get-product?id=123', (req, res) => {
+	res.status(200).send('db');
 });
 
 // Es importante siempre nombrar las colecciones de datos en plural
@@ -49,12 +31,13 @@ app.get('/get-products', (req, res) => {
 app.get('/product/:id', (req, res) => {
 	// Esto no está del todo mal, pero no le avisa al cliente que podría haber otros productos
 	// Por este motivo es mejor poner este recurso en plural y luego indicar el id de alguno en particular: /products/1234
-	res.status(200).json(db);
+	res.status(200).json('db');
 });
 
 app.patch('/products/:id', (req, res) => {
+	const db = { stock: [{ name: 'test', id: 'test' }] };
 	const { id } = req.params;
-	const productFound = db.stock.find((product) => product.id === Number(id));
+	const productFound = db.stock.find((product: any) => product.id === id);
 
 	// Muy importante tomarse el tiempo de investigar cuáles son los códigos de estado de respuesta del servidor
 	// que corresponden para cada situación
