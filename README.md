@@ -11,7 +11,7 @@ La función principal de las **API**s es la de simplificar el acceso a los recur
 
 **REST** es un **estilo de arquitectura de software** desarrollado por Roy Fielding en el año 2000 en su tesis doctoral. Su nombre es el acrónimo en inglés de **RE**presentational **S**tate **T**ransfer, en español, _transferencia de estado representacional_: esto significa que en estas aplicaciones lo que estamos transfiriendo son representaciones de los datos en algún formato, indicando en cada solicitud el estado completo necesario para llevar a cabo esa solicitud. Fue creado con el proposito de estructurar el diseño y desarrollo de la **World Wide Web**. REST define una **serie de reglas** que determinan el comportamiento de un sistema de hipermedia distribuido a través de Internet, como la WEB.
 
-![REST](https://dossetenta.com/wp-content/uploads/2021/12/R6qFq3n.png)
+![ARQUITECTURAS](https://cdn.discordapp.com/attachments/1089135096008822869/1164140359429931148/1696426774020.gif?ex=65422132&is=652fac32&hm=26725b0883eaf74dc6d0cc84565c34d63a27b0684c50ad4f217c3675b0f9daa3&)
 
 Como todo arquitecto, su principal objetivo es el de que la estructura que crean se sostenga la mayor cantidad de tiempo posible, de la mejor forma posible, y de la forma más simple posible. Teniendo en mente estos principios básicos, se desarrollaron unos lineamientos muy específicos a seguir:
 
